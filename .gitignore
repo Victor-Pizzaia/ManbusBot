@@ -1,0 +1,5 @@
+.idead/
+build/
+.gradle/
+out/
+.env

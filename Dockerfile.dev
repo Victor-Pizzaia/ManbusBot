@@ -1,9 +1,11 @@
-FROM gradle:6.7.0-jdk11-alpine
+FROM gradle:jdk11-alpine
 
 COPY --chown=gradle:gradle . /home/gradle/src
 
 WORKDIR /home/gradle/src
 
-RUN gradle build --no-daemon 
+RUN gradle build --no-daemon
 
-CMD ["./gradlew", "run"]
+WORKDIR /home/gradle/src/build/libs
+
+CMD ["java", "-jar", "ManbusBot-1.0-SNAPSHOT.JAR"]
